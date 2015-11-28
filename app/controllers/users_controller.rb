@@ -26,7 +26,8 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success] = "Sikeres regisztráció"
-      redirect_to root_path
+      log_in @user
+      redirect_to @user
     else
       render 'new'
     end
