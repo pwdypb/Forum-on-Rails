@@ -3,6 +3,24 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
+  def edit
+    @user = User.find(params[:id])
+
+    @user.name = user_params[:name]
+    @user.password = user_params[:password]
+
+    if @user.save
+      flash[:success] = "Adatok módosítva"
+      redirect_to root_path
+    else
+      render 'show'
+    end
+  end
+
   def create
     @user = User.new(user_params)
 

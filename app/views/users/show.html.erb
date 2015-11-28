@@ -1,0 +1,15 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= @user.name %>
+      </h1>
+      <div>Regisztráció dátuma: <%= @user.created_at %></div>
+      <div>Létrehozott topicok száma: <%= 12 %></div>
+      <div>Posztok száma: <%= 300 %> </div>
+      <div>Utolsó bejelentkezés: <%= Time.now %></div>
+    </section>
+
+    <%= render 'edit_user' %>
+  </aside>
+</div>

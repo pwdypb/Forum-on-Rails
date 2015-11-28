@@ -1,0 +1,17 @@
+<h2> Adatok módosítása: </h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:user, url: edit_user_path) do |f| %>
+        <%= f.label :name, "Név módosítása" %>
+        <%= f.text_field :name, class: 'form-control' %>
+
+        <%= f.label :password, "Jelszó módosítása" %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.label :password_confirmation, "Jelszó mégegyszer" %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+        <%= f.submit "Adatok mentése", class: "btn btn-primary"%>
+    <% end %>
+  </div>
+</div>
