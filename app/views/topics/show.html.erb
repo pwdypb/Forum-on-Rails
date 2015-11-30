@@ -1,10 +1,17 @@
 <div>
   <% @topics.each do |t| %>
-    <div class="row topic-row">
-      <%= t.title %>
-      <%= User.find(t.owner).name %>
-      <%= t.created_at %>
-    </div>
+      <div class="row topic-row">
+        <span class="topic-title">
+          <%= t.title %>
+        </span>
 
+        <span class="topic-creation-date">
+          at: <%= t.created_at %>
+        </span>
+
+        <span class="topic-owner">
+          Created by: <%= User.find(t.owner).name %>
+        </span>
+      </div>
   <% end %>
 </div>
