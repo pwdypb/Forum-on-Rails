@@ -1,6 +1,6 @@
 <div>
   <% @topics.each do |t| %>
-    <div class="row">
+    <div class="row topic-row">
       <%= t.title %>
       <%= User.find(t.owner).name %>
       <%= t.created_at %>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # get 'users/new'
 
-  root 'static_pages#home'
+  root to: 'static_pages#home'
 
   get 'signup'  => 'users#new'
   get 'show'    => 'users#show'
