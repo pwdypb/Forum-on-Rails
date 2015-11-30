@@ -2,7 +2,8 @@
   <% @topics.each do |t| %>
     <div class="row">
       <%= t.title %>
-      <%= t.owner %>
+      <%= User.find(t.owner).name %>
+      <%= t.created_at %>
     </div>
 
   <% end %>
