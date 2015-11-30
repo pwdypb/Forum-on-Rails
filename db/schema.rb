@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151127215500) do
+ActiveRecord::Schema.define(version: 20151128153046) do
+
+  create_table "topics", force: :cascade do |t|
+    t.string   "title"
+    t.string   "owner"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -20,5 +27,13 @@ ActiveRecord::Schema.define(version: 20151127215500) do
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
   end
+
+  create_table "users_to_topics", id: false, force: :cascade do |t|
+    t.integer "topic_id"
+    t.integer "user_id"
+  end
+
+  add_index "users_to_topics", ["topic_id"], name: "index_users_to_topics_on_topic_id"
+  add_index "users_to_topics", ["user_id"], name: "index_users_to_topics_on_user_id"
 
 end

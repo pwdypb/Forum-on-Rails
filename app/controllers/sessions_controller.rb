@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       log_in(user)
       flash[:success] = "Sikeres bejelentkezés"
-      redirect_to root_path
+      redirect_to :topics
     else
       flash.now[:danger] = "Érvénytelen email/jelszó kombináció"
       render 'new'
