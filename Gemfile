@@ -7,6 +7,8 @@ gem 'sass-rails'
 # Bootsrtap
 gem 'bootstrap-sass'
 
+gem 'cancancan'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
