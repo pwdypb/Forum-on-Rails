@@ -11,4 +11,10 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :topics
   has_many :posts
+  
+  Roles = [:admin, :default]
+  
+  def is?( requested_role )
+    self.role == requested_role
+  end
 end

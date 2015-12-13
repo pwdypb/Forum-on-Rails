@@ -1,8 +1,7 @@
 module PostsHelper
   def author(post)
-    user_id = post.owner_id
+    user_id = post.user_id
 
-    user = User.find(user_id)
-    user.name
+    @user = User.find(user_id)
   end
 end

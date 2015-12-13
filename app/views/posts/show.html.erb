@@ -2,7 +2,9 @@
   <% @posts.each do |p| %>
     <div class="post">
       <div class="post-profile">
-        <%= author(p) %>
+        <span class="post-username"><%= link_to p.user.name, p.user %></span>
+        <span class="post-numberofposts"><%= "Hozzászólások száma: #{p.user.posts.count}" %></span>
+        <span class="post-joined"><%= "Csatlakozott: #{p.user.created_at.to_date}" %></span>
       </div>
 
       <div class="post-date">
