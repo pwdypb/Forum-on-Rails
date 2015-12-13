@@ -6,6 +6,12 @@
   padding: 15px;
   margin: 15px;
   border: 1px solid black;
+  border-radius: 10px;
+}
+
+.topic-row:hover {
+  background-color: #99D4E8;
+  cursor: pointer;
 }
 
 .topic-title {

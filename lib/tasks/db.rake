@@ -8,6 +8,8 @@ namespace :db do
 
     Topic.create(title: "TesztTopic1", owner: User.first.id)
     Topic.create(title: "TesztTopic2", owner: User.last.id)
+
+    Post.create(text: "Lorem ipsum", owner_id: User.first.id, topic_id: Topic.first.id)
   end
 
 end

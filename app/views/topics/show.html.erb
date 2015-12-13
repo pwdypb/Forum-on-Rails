@@ -1,17 +1,20 @@
 <div>
   <% @topics.each do |t| %>
-      <div class="row topic-row">
-        <span class="topic-title">
-          <%= t.title %>
-        </span>
+      <%= link_to posts_path(t.id) do %>
+          <div class="row topic-row">
 
-        <span class="topic-creation-date">
-          at: <%= t.created_at %>
-        </span>
+            <span class="topic-title">
+              <%= t.title %>
+            </span>
 
-        <span class="topic-owner">
-          Created by: <%= User.find(t.owner).name %>
-        </span>
-      </div>
+            <span class="topic-creation-date">
+              at: <%= t.created_at %>
+            </span>
+
+            <span class="topic-owner">
+              Created by: <%= User.find(t.owner).name %>
+            </span>
+          </div>
+      <% end %>
   <% end %>
 </div>
