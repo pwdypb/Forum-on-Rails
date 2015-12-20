@@ -1,0 +1,11 @@
+<h2> Hozzászólok: </h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@post) do |f| %>
+        <%= f.label :text, "Hosszászólás tartalma:" %>
+        <%= f.text_field :text, class: 'form-control' %>
+
+        <%= f.submit "Hozzászólás elküldése", class: "btn btn-primary"%>
+    <% end %>
+  </div>
+</div>

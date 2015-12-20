@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 20151213101610) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "topics_users", id: false, force: :cascade do |t|
+    t.integer "topic_id"
+    t.integer "user_id"
+  end
+
+  add_index "topics_users", ["topic_id"], name: "index_topics_users_on_topic_id"
+  add_index "topics_users", ["user_id"], name: "index_topics_users_on_user_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -39,13 +47,5 @@ ActiveRecord::Schema.define(version: 20151213101610) do
     t.string   "password_digest"
     t.boolean  "admin"
   end
-
-  create_table "users_to_topics", id: false, force: :cascade do |t|
-    t.integer "topic_id"
-    t.integer "user_id"
-  end
-
-  add_index "users_to_topics", ["topic_id"], name: "index_users_to_topics_on_topic_id"
-  add_index "users_to_topics", ["user_id"], name: "index_users_to_topics_on_user_id"
 
 end

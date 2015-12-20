@@ -4,18 +4,31 @@ class User < ActiveRecord::Base
   before_save { self.email.downcase! }
 
   validates :name, presence: true, length: {minimum: 3, maximum: 50}
-  validates :email, presence: true, length: {maximum: 255 }, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false }
+  validates :email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   validates :password, length: {minimum: 6}, presence: true
 
   has_secure_password
 
   has_and_belongs_to_many :topics
   has_many :posts
-  
+
   Roles = [:admin, :default]
-  
-  def is?( requested_role )
+
+  def is?(requested_role)
     self.role == requested_role
+  end
+
+
+  def admin?()
+    self.admin
+  end
+
+  def created_post?(post)
+    self == post.user
+  end
+
+  def created_topic?(topic)
+    self == topic.user
   end
 
   def User.digest(string)

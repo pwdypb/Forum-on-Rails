@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   delete 'logout'=> 'sessions#destroy'
   get 'topics'  => 'topics#show', as: :topics
   get 'posts/:id'   => 'posts#show', as: :posts
+  delete 'posts/:id'  => 'posts#destroy', as: :destroy_post
+  get 'create_posts/:id'    => 'posts#new', as: :create_post
+  post 'posts/:id'    => 'posts#create', as: :add_post
 
 
   resources :users
