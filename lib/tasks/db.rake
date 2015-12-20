@@ -14,8 +14,13 @@ namespace :db do
     jane = User.create(name: "Jane", email: "jane@doe.com", password: "password", admin: false)
     john = User.create(name: "John", email: "john@doe.com", password: "password", admin: false)
 
-    Topic.create(title: "TesztTopic1", owner: admin.id)
-    Topic.create(title: "TesztTopic2", owner: john.id)
+    t = Topic.new(title: "TesztTopic1")
+    t.users << admin
+    t.save
+
+    t = Topic.new(title: "TesztTopic2")
+    t.users << admin
+    t.save
 
     Post.create(text: "Lorem ipsum", user_id: User.first.id, topic_id: Topic.first.id)
     Post.create(text: lorem, user_id: admin.id, topic_id: Topic.first.id)

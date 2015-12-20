@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     @post = @post = Post.new(post_params)
     topic_id = params[:id]
     topic = Topic.find(topic_id)
+    topic.users << current_user unless topic.users.include?(current_user)
 
     @post.user = current_user
     @post.topic = topic

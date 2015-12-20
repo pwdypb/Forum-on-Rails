@@ -1,0 +1,11 @@
+<h2> Topic létrehozása: </h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@topic) do |f| %>
+        <%= f.label :title, "Fórum téma címe:" %>
+        <%= f.text_field :title, class: 'form-control' %>
+
+        <%= f.submit "Fórum téma létrehozása", class: "btn btn-primary"%>
+    <% end %>
+  </div>
+</div>
