@@ -31,9 +31,7 @@ class PostsController < ApplicationController
     post = Post.find(id)
     topic_id = post.topic.id
 
-    post.update_attribute :topic_id, nil
-    post.update_attribute :user_id, nil
-    post.destroy!
+    post.destroy
 
     redirect_to posts_path(topic_id)
   end

@@ -4,12 +4,17 @@
       <h1>
         <%= @user.name %>
       </h1>
+
       <div>Regisztráció dátuma: <%= @user.created_at %></div>
-      <div>Létrehozott topicok száma: <%= 12 %></div>
-      <div>Posztok száma: <%= 300 %> </div>
-      <div>Utolsó bejelentkezés: <%= Time.now %></div>
+      <div>Létrehozott topicok száma: <%= @user.topics.count %></div>
+      <div>Posztok száma: <%= @user.posts.count %> </div>
+      <!--<div>Utolsó bejelentkezés: <%= Time.now %></div>-->
     </section>
 
-    <%= render 'edit_user' %>
+    <a href="#" onclick="show_user_editor('.user-editor')">Profil szerkesztése</a>
+
+    <div class="user-editor">
+      <%= render 'edit_user' %>
+    </div>
   </aside>
 </div>

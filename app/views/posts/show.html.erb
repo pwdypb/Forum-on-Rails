@@ -15,7 +15,7 @@
         </div>
 
         <% if current_user.admin? || current_user.created_post?(p) %>
-            <span class="post-delete"><%= link_to "törlés", destroy_post_path(p.id), method: :delete %></span>
+            <span class="post-delete"><%= link_to "törlés", destroy_post_path(p.id), remote: true, method: :delete %></span>
         <% end %>
 
         <div class="post-content">
